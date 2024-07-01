@@ -1,3 +1,4 @@
 <x-layout>
-    <h2>Home Page</h2>
+    <x-slot:heading>Home Page</x-slot:heading>
+    <h2>Content of Home Page</h2>
 </x-layout>
