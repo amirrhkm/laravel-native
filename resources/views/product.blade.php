@@ -1,13 +1,17 @@
 <x-layout>
-    <x-slot:heading>Product Page</x-slot:heading>
+    <x-slot:heading>Product Listing</x-slot:heading>
     
-    <ul>
+    <div class="space-y-4">
         @foreach ($products as $product)
-            <li>
-                <a href="/product/{{ $product['id']}}">
-                    <strong> {{ $product['name'] }}: </strong> costs {{ $product['price'] }}
-                </a>
-            </li>
+            <a href="/product/{{ $product['id']}}" class="block px-4 py-6 border border-gray-200 rounded-lg">
+                <div class="font-bold text-blue-500">{{ $product->brand->name }}</div>
+
+                <strong> {{ $product['name'] }}: </strong> costs RM {{ $product['price'] }}
+            </a>
         @endforeach
-    </ul>
+    </div>
+
+    <div class="m-4">
+        {{ $products->links() }}
+    </div>
 </x-layout>
