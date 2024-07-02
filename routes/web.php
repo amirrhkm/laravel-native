@@ -36,3 +36,15 @@ Route::get('/product', function () {
 Route::get('/product/{id}', function ($id) {
     return view('products.details', ['product' => Product::find($id)]);
 });
+
+Route::get('/product/{id}/edit', function ($id) {
+    return view('products.edit', ['product' => Product::find($id)]);
+});
+
+Route::patch('/product/{id}', function ($id) {
+    
+});
+
+Route::delete('/product/{id}', function ($id) {
+    
+});
