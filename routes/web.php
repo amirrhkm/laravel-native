@@ -16,6 +16,10 @@ Route::get('/product/create', function () {
 });
 
 Route::post('/products', function () {
+    request()->validate([
+        'name'=> ['required','min:8'],
+        'price'=> ['required'],
+    ]);
     Product::create([
         'name'=>request('name'),
         'price'=>request('price'),
