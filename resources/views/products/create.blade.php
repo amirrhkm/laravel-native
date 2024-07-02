@@ -27,8 +27,11 @@
                         <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Product name</label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="text" name="name" id="name" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Deathadder V3 Pro">
+                                <input type="text" name="name" id="name" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Deathadder V3 Pro" required>
                             </div>
+                            @error('name')
+                                <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -38,11 +41,24 @@
                         <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Product price</label>
                         <div class="mt-2">
                             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                <input type="text" name="price" id="price" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="RM 235.85">
+                                <input type="text" name="price" id="price" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="RM 235.85" required>
                             </div>
+                            @error('price')
+                                <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
+
+                {{-- <div class="mt-5">
+                    @if ($errors->any())
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li class="text-red-500 italic">{{ $error }}</li>
+                            @endforeach
+                        </ul>    
+                    @endif
+                </div> --}}
             </div>
 
             <div class="mt-6 flex items-center justify-end gap-x-6">
