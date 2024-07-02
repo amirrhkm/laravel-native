@@ -12,7 +12,8 @@ Route::get('/about', function () {
 });
 
 Route::get('/product', function () {
-    return view('product', ['products' => Product::all()]);
+    $products = Product::with('brand')->paginate(3);
+    return view('product', ['products' => $products]);
 });
 
 Route::get('/product/{id}', function ($id) {
