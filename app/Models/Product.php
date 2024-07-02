@@ -9,4 +9,12 @@ class Product extends Model {
     use HasFactory;
     protected $table = 'products';
     protected $fillable = ['name','price'];
+
+    public function brand() {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
+    }
 }
