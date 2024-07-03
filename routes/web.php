@@ -15,7 +15,7 @@ Route::get('/product/create', function () {
     return view('products.create');
 });
 
-Route::post('/products', function () {
+Route::post('/product', function () {
     request()->validate([
         'name'=> ['required','min:8'],
         'price'=> ['required'],
@@ -42,9 +42,25 @@ Route::get('/product/{id}/edit', function ($id) {
 });
 
 Route::patch('/product/{id}', function ($id) {
-    
+    request()->validate([
+        'name'=> ['required'],
+        'price'=> ['required'],
+    ]);
+
+    $product = Product::findOrFail($id);
+    $product->name = request('name');
+    $product->price = request('price');
+    $product->save();
+
+    $product->update([
+        'name'=> request('name'),
+        'price'=> request('price'),
+    ]);
+
+    return redirect('/product/'. $product->id);
 });
 
 Route::delete('/product/{id}', function ($id) {
-    
+    Product::findOrFail($id)->delete();
+    return redirect('/product');
 });
