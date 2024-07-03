@@ -21,7 +21,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name'=> ['required'],
+            'name'=> ['required', 'min:4'],
             'price'=> ['required'],
         ]);
         Product::create([
@@ -45,7 +45,7 @@ class ProductController extends Controller
     public function update(Product $product)
     {
         request()->validate([
-            'name'=> ['required'],
+            'name'=> ['required','min:4'],
             'price'=> ['required'],
         ]);
     
