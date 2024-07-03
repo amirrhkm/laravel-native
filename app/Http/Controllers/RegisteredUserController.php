@@ -3,18 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserController extends Controller
 {
     public function create() {
-        return view("auth.register");
+        return view('auth.register');
     }
 
     public function store() {
-        request()->validate([
-            "name"=>["required","min:8"],
-            "email"=> ["required","min:8"],
-            "password"=> ["required","min:8"],
+        $attributes = request()->validate([
+            'name'=>['required'],
+            'email'=>['required','email'],
+            'password'=>['required', Password::min(6),'confirmed']
         ]);
+
+        $user = User::create($attributes);
+        
+        Auth::login($user);
+
+        return redirect('/product');
     }
 }
