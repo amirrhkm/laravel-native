@@ -3,8 +3,10 @@
         Edit Product: {{ $product->name }}
     </x-slot:heading>
 
-    <form method="POST" action="/products">
+    <form method="POST" action="/product/{{ $product->id }}">
         @csrf
+        @method('PATCH')
+
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -50,14 +52,32 @@
                 </div>
             </div>
 
-            <div class="mt-6 flex items-center justify-end gap-x-6">
-                <a href="/product/{{$product->id}}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
-                <button
-                    type="submit"
-                    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update
-                </button>
+            <div class="mt-6 flex items-center justify-between gap-x-6">
+                <div class="flex items-center">
+                    <button
+                        type="submit"
+                        form="delete-form"
+                        class="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Delete
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-x-6">
+                    <a href="/product/{{$product->id}}" class="text-sm font-semibold leading-6 text-gray-900">Cancel</a>
+                    <div>
+                        <button
+                            type="submit"
+                            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update
+                        </button>
+                    </div>
+                </div>
+                
             </div>
         </div>
+    </form>
+
+    <form method="POST" class="hidden" action="/product/{{ $product->id }}" id="delete-form">
+        @csrf
+        @method('DELETE')
     </form>
 
 </x-layout>

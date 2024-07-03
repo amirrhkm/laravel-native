@@ -1,4 +1,4 @@
 <x-layout>
-    <x-slot:heading>Home Page</x-slot:heading>
-    <h2>Content of Home Page</h2>
+    <x-slot:heading>Home</x-slot:heading>
+    <h2>List and sell your products with us!</h2>
 </x-layout>
