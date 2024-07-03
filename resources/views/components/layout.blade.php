@@ -34,6 +34,7 @@
                                 @endguest
 
                                 @auth
+                                    <div class="text-gray-100 mr-5">{{ Auth::user()->name }}</div>
                                     <form method="POST" action="/logout">
                                         @csrf
                                         <x-form-button>Logout</x-form-button>
