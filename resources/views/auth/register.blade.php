@@ -13,7 +13,7 @@
                         <x-form-label for="name">Username</x-form-label>
                         <div class="mt-2">
                             <x-form-input type="text" name="name" id="name" placeholder="John Doe" required />
-                            <x-form-error name='name'></x-form-error>
+                            <x-form-error name="name"></x-form-error>
                         </div>
                     </x-form-field>
 
@@ -21,7 +21,7 @@
                         <x-form-label for="email">Email</x-form-label>
                         <div class="mt-2">
                             <x-form-input type="email" name="email" id="email" placeholder="johndoe@example.com" required />
-                            <x-form-error name='email'></x-form-error>
+                            <x-form-error name="email"></x-form-error>
                         </div>
                     </x-form-field>
                 
@@ -29,15 +29,15 @@
                         <x-form-label for="password">Password</x-form-label>
                         <div class="mt-2">
                             <x-form-input type="password" name="password" id="password" placeholder="********" required />
-                            <x-form-error name='password'></x-form-error>
+                            <x-form-error name="password"></x-form-error>
                         </div>
                     </x-form-field>
 
                     <x-form-field class="sm:col-span-4">
                         <x-form-label for="password_confirmation">Confirm Password</x-form-label>
                         <div class="mt-2">
-                            <x-form-input type="password_confirmation" name="password_confirmation" id="password_confirmation" placeholder="********" required />
-                            <x-form-error name='password_confirmation'></x-form-error>
+                            <x-form-input type="password" name="password_confirmation" id="password_confirmation" placeholder="********" required />
+                            <x-form-error name="password_confirmation"></x-form-error>
                         </div>
                     </x-form-field>
                 </div>
