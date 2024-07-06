@@ -45,7 +45,6 @@
                         <x-form-button>Update</x-form-button>
                     </div>
                 </div>
-                
             </div>
         </div>
     </form>
